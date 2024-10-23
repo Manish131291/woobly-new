@@ -1,0 +1,163 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/colors' as c;
+
+.option-card {
+  label {
+    background: c.$white;
+    border: 1px solid var(--neutrals-200);
+    border-radius: 0.5rem;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .optioncard__header {
+    .radio__custom,
+    .checkbox__custom {
+      position: relative;
+    }
+  }
+  &--body,
+  &--content {
+    label {
+      .radio__custom,
+      .checkbox__custom {
+        right: 1rem;
+        left: unset;
+        top: 1rem;
+      }
+    }
+    .optioncard__content {
+      margin-left: 0.875rem;
+      margin-right: 1.25rem;
+    }
+    &.content-only {
+      .optioncard__content {
+        margin-left: 0;
+        margin-right: 1.25rem;
+      }
+    }
+    &.option-card--md {
+      .optioncard__content {
+        margin-left: 1rem;
+        margin-right: 1.5rem;
+      }
+    }
+    &.option-card--left {
+      .radio__custom,
+      .checkbox__custom {
+        left: 1rem;
+        top: 1.125rem;
+      }
+      &.option-card--sm {
+        .optioncard__content {
+          margin-left: 1.5rem;
+          margin-right: 0;
+        }
+      }
+      &.option-card--md {
+        .optioncard__content {
+          margin-left: 1.75rem;
+          margin-right: 0;
+        }
+      }
+    }
+    &.option-card--right {
+      &.content-only {
+        .optioncard__content {
+          margin-left: 0;
+          margin-right: 1.25rem;
+        }
+      }
+    }
+  }
+  .title {
+    color: var(--neutrals-700);
+    font-weight: 500;
+  }
+  .optioncard__body {
+    border-radius: 0 0 0.5rem 0.5rem;
+    border-top: 1px solid var(--neutrals-200);
+  }
+  .optioncard__description,
+  .title-tag {
+    font-weight: v.$fw-400;
+    color: var(--neutrals-500);
+    display:flex;
+  }
+  .radio__input,
+  .checkbox__input {
+    &:checked {
+      & + label {
+      background: var(--Primary-50, #FFF4E2);
+        border: 1px solid var(--Primary-300, #FFD99E);
+        .title {
+          color: var(--primary-800);
+        }
+        .optioncard__description,
+        .title-tag {
+          color: var(--primary-600);
+        }
+        .optioncard__body {
+          background: c.$white;
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        border-color: var(--neutrals-200);
+        background: var(--neutrals-50);
+        .title {
+          color: var(--neutrals-700);
+        }
+        .optioncard__description,
+        .title-tag {
+          color: var(--neutrals-500);
+        }
+        .optioncard__body {
+          background: var(--neutrals-50);
+        }
+      }
+    }
+    &:hover {
+      & + label {
+        border-color: var(--primary-300);
+        .optioncard__body {
+          border-color: var(--primary-300);
+        }
+      }
+      &:checked {
+        & + label {
+          border-color: var(--primary-500);
+        }
+      }
+    }
+    &:focus {
+      & + label {
+        border-color: var(--primary-300);
+        .optioncard__body {
+          border-color: var(--primary-300);
+        }
+      }
+    }
+  }
+  &.radio--md,
+  &.checkbox--md {
+    .optioncard__description {
+      margin-top: 0.125rem;
+    }
+    label {
+      padding: 0;
+    }
+  }
+  &.radio--left {
+    .radio__custom {
+      right: unset;
+      left: 1rem;
+      top: 1.125rem;
+    }
+    .optioncard__header {
+      padding-left: 2rem;
+    }
+  }
+}

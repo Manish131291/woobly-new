@@ -1,0 +1,121 @@
+@use '../../../styles/abstracts/mixins' as m;
+
+.heading_bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  height: 6.25rem;
+  background: linear-gradient(270deg, #ffb305 0%, var(--primary-600) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.gray-header {
+  background: var(--neutrals-100) !important;
+  h1 {
+    color: var(--neutrals-900) !important;
+  }
+  p {
+    color: var(--neutrals-700) !important;
+  }
+}
+
+.drawer-container {
+  position: absolute;
+  background-color: #ffffff;
+  height: 100vh;
+  right: 0;
+  border-radius: 0.75rem 0 0 0.75rem;
+  z-index: 999;
+  transform: translateX(30rem);
+  overflow-y: scroll;
+  transition: transform 600ms;
+  transition-timing-function: ease-in-out;
+  overflow-x: hidden;
+}
+
+.drawer_open_container {
+  width: 30rem;
+  @include m.media('mobilesmall') {
+    width: 22.5rem;
+  }
+  transform: translateX(0);
+}
+
+.drawer_close_container {
+  width: 30rem;
+}
+
+.outer_container {
+  background: rgba(26, 29, 43, 0.3);
+  backdrop-filter: blur(0);
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  left: 0;
+  transition: all 600ms ease-in-out;
+}
+
+.outer_container-fade-out {
+  visibility: hidden;
+  backdrop-filter: blur(0);
+}
+
+.outer_container-fade-in {
+  visibility: visible;
+  backdrop-filter: blur(0.25rem);
+}
+
+.drawer_body {
+  height: calc(100% - 8rem);
+}
+.drawer_body_with_footer {
+  height: calc(100% - 11.5rem);
+}
+
+.details-view-only-drawer {
+  .drawer_open_container {
+    .accordion__item {
+      gap: 1rem;
+    }
+    width: 85%;
+    transform: translateX(0) !important;
+    .drawer_body {
+      padding: 0 !important;
+    }
+    .drawer_body_with_footer {
+      height: calc(100% - 3rem) !important;
+      padding: 0 !important;
+    }
+  }
+  .drawer_close_container {
+    width: 85%;
+  }
+  .drawer-container {
+    transform: translateX(100%);
+  }
+}
+.m-display-xxl-normal {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 400;
+}
+header {
+  margin-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+.drawer-cross-icon {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--Neutrals-300, #D1D2D5);
+  padding: 0.25rem;
+}

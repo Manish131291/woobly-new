@@ -1,0 +1,118 @@
+/** @type {import('tailwindcss').Config} */
+
+module.exports = {
+  darkMode: 'class',
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        orange: {
+          25: 'var(--primary-25)',
+          50: 'var(--primary-50)',
+          100: 'var(--primary-100)',
+          200: 'var(--primary-200)',
+          300: 'var(--primary-300)',
+          400: 'var(--primary-400)',
+          500: 'var(--primary-500)',
+          600: 'var(--primary-600)',
+          700: 'var(--primary-700)',
+          800: 'var(--primary-800)',
+          900: 'var(--primary-900)',
+        },
+        primary: {
+          25: 'var(--primary-25)',
+          50: 'var(--primary-50)',
+          100: 'var(--primary-100)',
+          200: 'var(--primary-200)',
+          300: 'var(--primary-300)',
+          400: 'var(--primary-400)',
+          500: 'var(--primary-500)',
+          600: 'var(--primary-600)',
+          700: 'var(--primary-700)',
+          800: 'var(--primary-800)',
+          900: 'var(--primary-900)',
+        },
+        gray: {
+          25: 'var(--neutrals-25)',
+          50: 'var(--neutrals-50)',
+          100: 'var(--neutrals-100)',
+          200: 'var(--neutrals-200)',
+          300: 'var(--neutrals-300)',
+          400: 'var(--neutrals-400)',
+          500: 'var(--neutrals-500)',
+          600: 'var(--neutrals-600)',
+          700: 'var(--neutrals-700)',
+          800: 'var(--neutrals-800)',
+          900: 'var(--neutrals-900)',
+          dark: '--neutrals-dark',
+        },
+        neutrals: {
+          25: 'var(--neutrals-25)',
+          50: 'var(--neutrals-50)',
+          100: 'var(--neutrals-100)',
+          200: 'var(--neutrals-200)',
+          300: 'var(--neutrals-300)',
+          400: 'var(--neutrals-400)',
+          500: 'var(--neutrals-500)',
+          600: 'var(--neutrals-600)',
+          700: 'var(--neutrals-700)',
+          800: 'var(--neutrals-800)',
+          900: 'var(--neutrals-900)',
+        },
+        green: {
+          50: '#ECFDF3',
+          500: '#12B76A',
+          600: '#039855',
+          700: '#027A48',
+          900: '#054F31',
+        },
+        red: {
+          40: '#FFE4E8',
+          50: '#FEF3F2',
+          500: '#F04438',
+          600: '#D92D20',
+          700: '#B42318',
+        },
+        purple: {
+          200: '#E6D1E9',
+          800: '#6D3078',
+          700: '#026AA2',
+        },
+        success: {
+          100: '#D1FADF',
+          800: '#05603a',
+        },
+        rose: {
+          50: '#FFF1F3',
+          700: '#C01048',
+        },
+
+        warning_400: '#FDB022',
+        warning_500: '#F79009',
+        warning_600: '#DC6803',
+        warning_300: '#FEC84B',
+        warning_700: '#B54708',
+        warning_100: '#FEF0C7',
+        warning_50: '#FFFAEB',
+        warning_800: '#93370D',
+      },
+      fontSize: {
+        xxs: [
+          '0.625rem',
+          {
+            lineHeight: '0.75rem',
+            fontWeight: '500',
+          },
+        ],
+        'text-1xl': [
+          '1.375rem',
+          {
+            lineHeight: '2rem',
+            fontWeight: '700',
+          },
+        ],
+      },
+    },
+  },
+  plugins: [],
+};

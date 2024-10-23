@@ -1,0 +1,41 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/colors' as c;
+@use '../../../styles/abstracts/mixins' as m;
+.tab-container {
+  background-color: c.$white;
+  border-radius: 1rem;
+
+  .tab-list {
+    border-bottom: 1px solid var(--neutrals-300);
+    display: flex;
+  }
+
+  .tab-main-container {
+    padding: 1rem;
+  }
+
+  .tabheading {
+    padding: 1.25rem 1.5rem 0.75rem 1.25rem;
+    @include m.media('mobilesmall') {
+      padding: 0.5rem;
+    }
+    cursor: pointer;
+  }
+
+  .selecttab {
+    border-bottom: 0.125rem solid var(--primary-600);
+    color: var(--primary-600);
+  }
+
+  .right-side-tab-head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 1rem;
+    @include m.media('mobilesmall') {
+        justify-content: flex-start;
+      }
+
+  }
+}

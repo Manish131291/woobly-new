@@ -1,0 +1,43 @@
+@use '../../../styles/abstracts/colors' as c;
+
+.login-form {
+    .forgot__action {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: c.$purple-600;
+        margin-top: 1rem;
+    }
+
+    .register-btn {
+        display: inline;
+        padding: 0;
+        padding-left: 0.25rem;
+        font-weight: 400;
+
+        &:hover {
+            background-color: c.$white;
+        }
+    }
+}
+.login-bg-img {
+    position: absolute;
+        top: 0;
+        right: 0;
+        width: 350px;
+        height: 350px;
+        z-index: 1;
+}
+.input .input__wrapper {
+    border-radius: 100px;
+    height: 3rem;
+}
+.btn {
+    border-radius: 100px !important;
+    height: 3rem;
+}
+
+.auth-screen .input input {
+    border-radius: 1rem;
+    background-color: transparent;
+}

@@ -1,0 +1,74 @@
+@use '../../../styles/abstracts/colors' as c;
+@use '../../../styles/abstracts/mixins' as m;
+
+.radio {
+
+    label {
+        width: auto;
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem;
+            border: 1px solid c.$gray-200;
+            border-radius: 100px;
+            align-items: center;
+    }
+        .radio__custom{
+            visibility: hidden;
+        }
+
+}
+
+.tab-main-container
+{
+    .radio__custom {
+            visibility:visible;
+        }
+}
+.radio .radio__input:checked+label {
+    border: 1px solid c.$primary-200;
+    background-color: c.$primary-100;
+    color: c.$primary-600;
+}
+
+.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root {
+    border-radius: 100px !important;
+        width: 20rem;
+}
+.css-7ctihp-MuiTypography-root{
+    display: flex;
+}
+
+.check-in-container {
+.tab-container {
+    border-radius: 1rem;
+
+    .tab-list {
+        display: flex;
+        gap: 0.5rem;
+        border: none;
+    }
+        .tab-main-container {
+            padding: 1rem 0;
+        }
+
+        .tabheading {
+            padding: 0.5rem 1rem;
+    
+            @include m.media('mobilesmall') {
+                padding: 0.5rem;
+            }
+    
+            cursor: pointer;
+            border-radius: 100px;
+            border: 1px solid var(--Neutrals-100, #F2F2F4);
+            background: var(--Neutrals-100, #F2F2F4);
+            color: var(--Neutrals-600, #575965);
+        }
+    
+        .selecttab {
+            border: 1px solid var(--Primary-600, #D19E44);
+            color: var(--primary-600);
+            background: var(--Primary-100, #FFEBCC);
+        }
+} 
+}

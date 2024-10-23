@@ -1,0 +1,28 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/colors' as c;
+
+.divider {
+  @apply flex items-center;
+
+  .divider__line {
+    @apply flex-grow;
+    border-top: 1px solid var(--neutrals-200);
+    flex-direction: row;
+  }
+  .divider__text {
+    font-size: v.$fs-14;
+    line-height: 1.25rem;
+    margin: 0 0.5rem;
+    color: var(--neutrals-500);
+  }
+  &--thin {
+    .divider__line {
+      border-top-width: 0.5px;
+    }
+  }
+  &--thick {
+    .divider__line {
+      border-top-width: 2px;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+@use '../../../styles/abstracts/variables';
+@use '../../../styles/abstracts/colors' as c;
+
+.radio {
+  .radio__input {
+    position: absolute;
+    opacity: 0;
+    outline: none;
+    &:checked {
+      & + label {
+        .radio__custom {
+          background-color: var(--primary-50);
+          border-color: var(--primary-600);
+          color: var(--primary-600);
+          &.fill {
+            background: var(--primary-600);
+            color: c.$white;
+            svg {
+              display: block;
+            }
+          }
+        }
+        .radio-dot::before {
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          background: var(--primary-600);
+          height: 6px;
+          width: 6px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+    &:hover {
+      & + label {
+        .radio__custom {
+          border-color: var(--primary-600);
+          background-color: var(--primary-50);
+        }
+      }
+    }
+    &:focus {
+      & + label {
+        .radio__custom {
+          border-color: var(--primary-600);
+          background-color: var(--primary-50);
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        cursor: default;
+        color: var(--neutrals-400);
+        .radio__desc {
+          color: var(--neutrals-300);
+        }
+        .radio__custom {
+          background-color: var(--neutrals-100);
+          border-color: var(--neutrals-300);
+          color: var(--neutrals-300);
+        }
+        .radio-dot::before {
+          background: var(--neutrals-300);
+        }
+      }
+    }
+    &:disabled:checked {
+      & + label {
+        .radio__custom {
+          &.fill {
+            background: var(--neutrals-300);
+          }
+        }
+      }
+    }
+  }
+  label {
+    position: relative;
+    padding-left: 1.5rem;
+    cursor: pointer;
+    color: var(--neutrals-900);
+  }
+  .radio__custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    outline: none;
+    border: 0.0625rem solid var(--neutrals-400);
+    border-radius: 50%;
+    background-color: c.$white;
+    &.fill {
+      svg {
+        display: none;
+      }
+    }
+  }
+  .radio__desc {
+    display: block;
+    padding-left: 1.5rem;
+    color: var(--neutrals-600);
+  }
+  &.radio--md {
+    label,
+    .radio__desc {
+      padding-left: 1.75rem;
+    }
+    .radio__custom {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    .radio__input:checked {
+      & + label {
+        .radio-dot::before {
+          height: 0.5rem;
+          width: 0.5rem;
+        }
+      }
+    }
+  }
+}

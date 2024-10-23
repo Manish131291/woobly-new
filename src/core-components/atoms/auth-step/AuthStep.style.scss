@@ -1,0 +1,18 @@
+@use '../../../styles/abstracts/mixins' as m;
+@use '../../../styles/abstracts/colors' as c;
+
+.auth-step {
+  width: 344px;
+  @include m.media('mobile') {
+    width: auto;
+  }
+  .auth-step__title {
+    color: c.$black;
+    margin-bottom: 0.25rem;
+  }
+  
+
+  @include m.media('desktop') {
+    padding: 0;
+  }
+}
