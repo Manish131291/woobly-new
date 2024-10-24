@@ -1,6 +1,3 @@
-const { REACT_APP_ITERATIONS, REACT_APP_KEY_BUFFER, REACT_APP_KEY_SIZE } =
-  process.env;
-
 export class Storage {
   static setItemAsync(key: string, value: string): void {
     localStorage.setItem(key, value);
@@ -48,9 +45,6 @@ export class SessionStorage {
     return sessionStorage.clear();
   }
 }
-
-const rsaPublicKey =
-  "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgFGVfrY4jQSoZQWWygZ83roKXWD4YeT2x2p41dGkPixe73rT2IW04glagN2vgoZoHuOPqa5and6kAmK2ujmCHu6D1auJhE2tXP+yLkpSiYMQucDKmCsWMnW9XlC5K7OSL77TXXcfvTvyZcjObEz6LIBRzs6+FqpFbUO9SJEfh6wIDAQAB";
 
 export function ArrayBufferToBase64(input: any) {
   return Buffer.from(input, "utf8").toString("base64");

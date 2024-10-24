@@ -14,6 +14,11 @@ import { ReactComponent as ThumbUp } from "../../../assets/images/thumbUp.svg";
 import { ReactComponent as ThumbDown } from "../../../assets/images/thumbDown.svg";
 import { ReactComponent as Copy } from "../../../assets/images/copy.svg";
 import { ReactComponent as UserAdd } from "../../../assets/images/user-add.svg";
+import { ReactComponent as ChevronUpArrow } from "../../../assets/images/chevron-up-arrow.svg";
+import { ReactComponent as ChevronDownIcon } from "../../../assets/images/chevron-down.svg";
+import { ReactComponent as MinimizeIcon } from "../../../assets/images/minimize.svg";
+import { ReactComponent as MaximizeIcon } from "../../../assets/images/maximize.svg";
+import { ReactComponent as Search } from "../../../assets/images/search.svg";
 
 interface IconProps {
   icon: string;
@@ -40,6 +45,11 @@ export const iconMapping: any = {
   "thumbDown-icon": ThumbDown,
   "copy-icon": Copy,
   "user-icon": UserAdd,
+  "chevron-up-arrow": ChevronUpArrow,
+  "chevron-down": ChevronDownIcon,
+  minimizeIcon: MinimizeIcon,
+  maximizeIcon: MaximizeIcon,
+  searchIcon: Search,
 };
 export const Icon: React.FC<IconProps> = ({
   icon,

@@ -16,9 +16,7 @@ import { Icon } from "../../../core-components/atoms/icon/Icon.component";
 import Iginee from "../../../assets/images/iginee.png";
 import Logo from "../../../assets/images/woobly-logo.svg";
 import { Divider } from "../../../core-components/atoms/divider/Divider.component";
-import { useNavigate } from "react-router-dom";
 const Dashboard: React.FC = () => {
-  const navigation = useNavigate();
   const [openSideDrawer, setOpenSideDrawer] = useState(false);
   const [tableSideDrawer, setTableSideDrawer] = useState(false);
   const [showSideDrawerUI, setShowSideDrawerUI] = useState(0);
@@ -686,16 +684,6 @@ const Dashboard: React.FC = () => {
           }}
         >
           {"Next"}
-        </Button>
-        <Button
-          dataTestId="CNFM"
-          btnType="primary"
-          classes="w-full"
-          onClick={() => {
-            navigation("/guest-list");
-          }}
-        >
-          {"guest"}
         </Button>
         {SideDrawerData()}
         {tableSideDrawerData()}

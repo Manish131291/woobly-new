@@ -1,0 +1,120 @@
+@use '../../../styles/abstracts/colors' as c;
+@use '../../../styles/abstracts/mixins' as m;
+
+.data-table-component-container {
+  background-color: c.$white;
+  border-radius: 0.875rem;
+  .data-table-container {
+    border: 0.03rem solid var(--neutrals-200);
+    width: 100%;
+    margin: 1rem 0;
+    min-width: max-content;
+    @include m.responsive('mobilesmall', 'mobile') {
+      width: min-content;
+    }
+    .data-table-headers {
+      background-color: var(--neutrals-200);
+      display: flex;
+      justify-content: space-around;
+      .selection-header {
+        display: flex;
+
+        flex-wrap: wrap;
+      }
+
+      .header {
+        padding-top: 0.813rem;
+        padding-bottom: 0.813rem;
+        padding-left: 1rem;
+        .header-checkbox {
+          margin-left: 2rem;
+        }
+        margin: auto;
+      }
+    }
+
+    .data-table-body {
+      display: grid;
+      .data-table-row {
+        background-color: c.$white;
+        display: inline-flex;
+        justify-content: space-around;
+      }
+      .data-table-row:not(:last-child) {
+        border-bottom: 0.03rem solid var(--neutrals-200);
+      }
+
+      .data-table-data {
+        padding-top: 1rem;
+        padding-left: 1rem;
+        padding-bottom: 1rem;
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+
+        .cell {
+          word-break: break-all;
+        }
+        .checkbox-cell {
+          display: flex;
+        }
+      }
+    }
+    .data-table-row:hover {
+      background-color: var(--neutrals-100);
+    }
+  }
+  .toolbar-container {
+    @include m.media('mobilesmall') {
+      width: 100%;
+    }
+
+    .search-paging-container {
+      &:empty {
+        display: none;
+      }
+      padding: 1rem 1rem 0;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+
+      .search-bar {
+        .btn {
+          border: 0.06rem solid var(--neutrals-300);
+        }
+        .search-input {
+          width: 20rem;
+          @include m.responsive('mobilesmall') {
+            width: 18.5rem;
+          }
+        }
+      }
+      .pagination-container-top {
+        display: flex;
+        align-items: center;
+        @include m.responsive('mobilesmall', 'ipad') {
+          display: none;
+        }
+      }
+    }
+  }
+  .table-container {
+    min-width: 19rem;
+    overflow-x: auto;
+    @include m.media('mobilesmall') {
+      width: 100%;
+    }
+  }
+  .pagination-container-bottom {
+    display: none;
+    gap: 0.75rem;
+    @include m.responsive('mobilesmall', 'ipad') {
+      display: inline-flex;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+      width: 100%;
+      max-width: 22.5rem;
+    }
+  }
+}

@@ -4,11 +4,12 @@ import { IG_Input } from "../../../core-components/atoms/input/IG_Input.componen
 
 import { Button } from "../../../core-components/atoms/button/Button.component";
 import { AuthStep } from "../../../core-components/atoms/auth-step/AuthStep.component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../../assets/images/woobly.svg";
 import LoginBg from "../../../assets/images/login-bg.svg";
 import WooblyLogo from "../../../assets/images/woobly-logo.svg";
+import { getPremisesTypes } from "../services/login.service";
 
 const MoodLogin: React.FC = () => {
   const navigation = useNavigate();
@@ -35,6 +36,15 @@ const MoodLogin: React.FC = () => {
       navigation("/dashboard");
     }
   };
+  useEffect(() => {
+    void (async () => {
+      const premises = await getPremisesTypes();
+      /* istanbul ignore else  */
+      if (premises.status === "success") {
+        console.log("premises", premises);
+      }
+    })();
+  }, []);
   return (
     <>
       <section className="auth-screen">

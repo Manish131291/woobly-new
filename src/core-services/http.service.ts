@@ -9,12 +9,7 @@ const defaultConfig = {
   },
 };
 
-const checkAvailUrl = (list: string[], str: any): boolean => {
-  return list.some((item) => item === str.match(item?.trim())?.[0]);
-};
-
-const { REACT_APP_STRAPI_URL, REACT_APP_TYPE, REACT_APP_RESPONSE_TIMEOUT } =
-  process.env;
+const { REACT_APP_RESPONSE_TIMEOUT } = process.env;
 export const instance = axios.create(defaultConfig);
 
 instance.interceptors.response.use(
@@ -43,25 +38,16 @@ async function post(
   config?: object,
   value?: string
 ) {
-  const deviceId: string = SessionStorage.getItem("browser_id") as string;
-  const encryptedList = JSON.parse(
-    SessionStorage.getItem("encryptedUrl") ?? "[]"
-  );
   const timer = setTimeout(() => {
     source.cancel();
   }, (REACT_APP_RESPONSE_TIMEOUT as any) * 1000);
   const response = await instance.post(`${url}`, params, {
-    cancelToken: source.token,
     headers: {
-      ...headers,
-      channel: "WEB",
+      Authorization: "",
     },
-    ...config,
   });
   clearTimeout(timer);
 
-  const isEncryption =
-    encryptedList?.length > 0 && checkAvailUrl(encryptedList, url);
   return response;
 }
 
@@ -97,18 +83,14 @@ export async function send(
 ): Promise<any> {
   let Url;
   let Params;
-
   if (!params || typeof params !== "object") {
     throw new Error("params is undefined or not an object");
   }
   try {
     const cancelToken = params.reqToken ?? axios.CancelToken.source();
-    const encryptedList = JSON.parse(
-      SessionStorage.getItem("encryptedUrl") ?? "[]"
-    );
+
     if (params.method === "POST") {
       Url = params.baseurl + params.url;
-
       Params = params.obj;
 
       return await post(Url, Params, cancelToken, headers, config);

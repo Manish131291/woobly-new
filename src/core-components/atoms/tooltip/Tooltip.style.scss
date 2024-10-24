@@ -1,0 +1,11 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/colors' as c;
+@use '../../../styles/abstracts/mixins' as m;
+
+.tooltip-component {
+  z-index: 99999;
+  position: relative;
+  @include m.media('mobile') {
+    display: none;
+  }
+}
