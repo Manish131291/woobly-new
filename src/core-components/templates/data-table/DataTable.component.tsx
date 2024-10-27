@@ -507,9 +507,8 @@ export const DataTable = ({
               {colPropsState?.map((item, index) => {
                 return (
                   <div
-                    className={`header m-text-sm-bold text-gray-800 ${
-                      selectionType ? "selection-header items-center" : ""
-                    } ${item.headerClasses ?? ""}`}
+                    className={`header m-text-sm-bold text-gray-800 ${selectionType ? "selection-header items-center" : ""
+                      } ${item.headerClasses ?? ""}`}
                     key={index}
                     style={generateStyle(item)}
                     onClickCapture={(event) => {
@@ -582,9 +581,8 @@ export const DataTable = ({
               {dataList?.map((item: any, index: number) => {
                 return (
                   <div
-                    className={`data-table-row cursor-pointer ${
-                      rowClass ?? ""
-                    }`}
+                    className={`data-table-row cursor-pointer ${rowClass ?? ""
+                      }`}
                     key={index}
                     onClick={() => {
                       onRowPress?.(item);
@@ -597,18 +595,15 @@ export const DataTable = ({
                             !rejectDataPressColumn.includes(String(innerIn)) &&
                               onDataPress?.(item);
                           }}
-                          className={`data-table-data ${
-                            itemCol.classes ?? "m-text-md-regular text-gray-600"
-                          }`}
+                          className={`data-table-data ${itemCol.classes ?? "m-text-md-regular text-gray-600"
+                            }`}
                           key={innerIn}
                           style={generateStyle(itemCol)}
                         >
                           <div
-                            className={`${
-                              itemCol.onFormatter ? "cellFormatter" : "cell"
-                            } ${
-                              selectionType ? "checkbox-cell items-center" : ""
-                            }`}
+                            className={`${itemCol.onFormatter ? "cellFormatter" : "cell"
+                              } ${selectionType ? "checkbox-cell items-center" : ""
+                              }`}
                           >
                             {innerIn === 0 && selectionType && (
                               <span
@@ -642,13 +637,12 @@ export const DataTable = ({
                               </span>
                             )}
                             <span
-                              className={`${
-                                (selectionType === "checkbox" ||
+                              className={`${(selectionType === "checkbox" ||
                                   selectionType === "radio") &&
-                                innerIn === 0
+                                  innerIn === 0
                                   ? "text-gray-900 m-text-sm-medium"
                                   : ""
-                              }`}
+                                }`}
                             >
                               {onColFormatter(
                                 item,

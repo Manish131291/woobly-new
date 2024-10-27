@@ -20,6 +20,14 @@ import { ReactComponent as MinimizeIcon } from "../../../assets/images/minimize.
 import { ReactComponent as MaximizeIcon } from "../../../assets/images/maximize.svg";
 import { ReactComponent as Search } from "../../../assets/images/search.svg";
 import { ReactComponent as Moderate } from "../../../assets/images/moderate.svg";
+import { ReactComponent as FeatureIcon } from "../../../assets/images/feature-icon.svg";
+import { ReactComponent as GuestIcon } from "../../../assets/images/guestIcon.svg";
+import { ReactComponent as HomeIcon } from "../../../assets/images/homeIcon.svg";
+import { ReactComponent as SettingIcon } from "../../../assets/images/setting.svg";
+import { ReactComponent as ShapeIcon } from "../../../assets/images/Shape.svg";
+import { ReactComponent as tableIcon } from "../../../assets/images/tableIcon.svg";
+import { ReactComponent as LogoutIcon } from "../../../assets/images/logoutIcon.svg";
+
 
 interface IconProps {
   icon: string;
@@ -52,6 +60,13 @@ export const iconMapping: any = {
   maximizeIcon: MaximizeIcon,
   searchIcon: Search,
   "moderate-icon": Moderate,
+  featureIcon: FeatureIcon,
+  guestIcon: GuestIcon,
+  homeIcon: HomeIcon,
+  settingIcon: SettingIcon,
+  shapeIcon: ShapeIcon,
+  tableIcon: tableIcon,
+  logoutIcon: LogoutIcon
 };
 export const Icon: React.FC<IconProps> = ({
   icon,
