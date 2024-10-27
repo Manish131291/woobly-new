@@ -1,8 +1,8 @@
-import Dashboard from "../screens/dashboard.screen";
+import FloorMap from "../screens/floor-map.screen";
 
 const journeyId = "DBRD";
-export const DashboardRoutes = {
-  path: "/dashboard",
+export const FloorMapRoutes = {
+  path: "/floor-map",
   name: "Dashboard Root",
   header: "Dashboard Root",
   component: "",
@@ -11,7 +11,7 @@ export const DashboardRoutes = {
       path: "",
       name: "Dashboard Home",
       header: "Dashboard Home",
-      component: Dashboard,
+      component: FloorMap,
       extraParams: {
         journeyId,
         screenId: "DBRD-HOME",

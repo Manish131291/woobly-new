@@ -19,6 +19,7 @@ import { ReactComponent as ChevronDownIcon } from "../../../assets/images/chevro
 import { ReactComponent as MinimizeIcon } from "../../../assets/images/minimize.svg";
 import { ReactComponent as MaximizeIcon } from "../../../assets/images/maximize.svg";
 import { ReactComponent as Search } from "../../../assets/images/search.svg";
+import { ReactComponent as Moderate } from "../../../assets/images/moderate.svg";
 
 interface IconProps {
   icon: string;
@@ -50,6 +51,7 @@ export const iconMapping: any = {
   minimizeIcon: MinimizeIcon,
   maximizeIcon: MaximizeIcon,
   searchIcon: Search,
+  "moderate-icon": Moderate,
 };
 export const Icon: React.FC<IconProps> = ({
   icon,

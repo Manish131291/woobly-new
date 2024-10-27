@@ -4,7 +4,7 @@ import { Button } from "../../../core-components/atoms/button/Button.component";
 import { RegEx } from "../../../core-constants/regex.constant";
 import QuantityInput from "../../../core-components/atoms/quantityinput/QuanityInput.component";
 import { Radio } from "../../../core-components/atoms/radio/Radio.component";
-import "../styles/dashboard.style.scss";
+import "../styles/floor-map.style.scss";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -16,7 +16,9 @@ import { Icon } from "../../../core-components/atoms/icon/Icon.component";
 import Iginee from "../../../assets/images/iginee.png";
 import Logo from "../../../assets/images/woobly-logo.svg";
 import { Divider } from "../../../core-components/atoms/divider/Divider.component";
-const Dashboard: React.FC = () => {
+import { useNavigate } from "react-router-dom";
+const FloorMap: React.FC = () => {
+  const navigation = useNavigate();
   const [openSideDrawer, setOpenSideDrawer] = useState(false);
   const [tableSideDrawer, setTableSideDrawer] = useState(false);
   const [showSideDrawerUI, setShowSideDrawerUI] = useState(0);
@@ -685,6 +687,16 @@ const Dashboard: React.FC = () => {
         >
           {"Next"}
         </Button>
+        <Button
+          dataTestId="CNFM"
+          btnType="primary"
+          classes="w-full"
+          onClick={() => {
+            navigation("/guest-list");
+          }}
+        >
+          {"guest"}
+        </Button>
         {SideDrawerData()}
         {tableSideDrawerData()}
       </div>
@@ -692,4 +704,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default FloorMap;
