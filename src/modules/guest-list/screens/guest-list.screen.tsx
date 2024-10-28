@@ -49,7 +49,7 @@ const GuestList: React.FC = () => {
     {
       name: "",
       key: "view",
-      classes: "break-all justify-start w-[86px] h-[40px] p-[12px] gap-[2px]",
+      classes: "break-all justify-start ",
       headerClasses: "m-text-xs-bold text-gray-900 ",
       onFormatter(_item) {
         return (
@@ -58,7 +58,7 @@ const GuestList: React.FC = () => {
               dataTestId=""
               btnType="secondary"
               classes=""
-              onClick={() => {}}
+              onClick={() => { }}
               size="lg"
             >
               View
@@ -71,7 +71,6 @@ const GuestList: React.FC = () => {
   return (
     <div className="flex flex-row h-screen">
       <SideNavBar />
-
       <div className="px-8 py-4 w-[80%] text-left">
         <h1 className=" text-2xl font-normal mt-6 text-neutral-900">
           Guest List

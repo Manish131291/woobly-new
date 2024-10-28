@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Logo from "../../../assets/images/woobly-logo.svg";
 import { Tab } from "../../../core-components/molecules/tab/Tab.component";
 import "../styles/dashboard.style.scss";
 import { Icon } from "../../../core-components/atoms/icon/Icon.component";
@@ -53,7 +52,7 @@ const Dashboard: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex md:w-[50%] w-full flex-col gap-4">
+              <div className="flex w-full md:flex-row flex-col gap-4">
                 <div className="flex md:w-[50%] w-full flex-col gap-4">
                   <div className="flex w-full flex-col items-start gap-2">
                     <h2 className="m-text-md-bold text-neutral-700">
@@ -262,7 +261,7 @@ const Dashboard: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex  flex-col  gap-4 w-[50%]">
+                <div className="flex  flex-col  gap-4 md:w-[50%] w-full">
                   <div className="w-full flex flex-col gap-2 items-start">
                     <h1 className="m-text-md-bold text-neutral-700">
                       Service Call

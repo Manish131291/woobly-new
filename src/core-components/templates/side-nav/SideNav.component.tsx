@@ -17,6 +17,7 @@ import dayjs from "dayjs";
 import { Tab } from "../../molecules/tab/Tab.component";
 import { useState } from "react";
 import { SideDrawer } from "../../atoms/side-drawer/SideDrawer.component";
+import Dummy from "../../../assets/images/avatar.jpg";
 export const SideNavBar: React.FC<any> = () => {
   const [currentTabSelected, setCurrentTabSelected] = useState(0);
   const [showSideDrawerUI, setShowSideDrawerUI] = useState(0);
@@ -408,21 +409,19 @@ export const SideNavBar: React.FC<any> = () => {
         <div className="w-full border text-gray-200 gap-4 mt-4 mb-4"></div>
 
         <div className="flex text-left justify-between gap-2 p-2">
-          <div>
-            <img src="" alt="" />
-            <div>
-              <div>
-                <span className="text-neutral-700 m-text-lg-medium">
-                  Naveen
-                </span>
-                &#9660;
-              </div>
-              <span className="text-neutral-500 m-text-xs-regular">
-                Manager
-              </span>
+          <div className="flex gap-3">
+            <img
+              src={Dummy}
+              className="rounded-full my-auto"
+              width={30}
+              height={30}
+            />
+            <div className="flex flex-col">
+              <div className="flex"><span className="text-neutral-700 m-text-lg-medium">Naveen</span><Icon icon="chevron-down" className="cursor-pointer"></Icon></div>
+              <span className="text-neutral-500 m-text-xs-regular">Manager</span>
             </div>
           </div>
-          <Icon icon="logoutIcon"></Icon>
+          <Icon icon="logoutIcon" className="cursor-pointer"></Icon>
         </div>
       </div>
     </>
