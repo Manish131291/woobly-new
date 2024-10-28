@@ -5,6 +5,7 @@ import "../styles/dashboard.style.scss";
 import { Icon } from "../../../core-components/atoms/icon/Icon.component";
 import { Divider } from "../../../core-components/atoms/divider/Divider.component";
 import Dummy from "../../../assets/images/avatar.jpg";
+import { SideNavBar } from "../../../core-components/templates/side-nav/SideNav.component";
 const Dashboard: React.FC = () => {
   const tabList = ["Today", "Yesterday", "Weekly", "Monthly", "Custom"];
   const [currentTabSelected, setCurrentTabSelected] = useState(0);
@@ -397,9 +398,7 @@ const Dashboard: React.FC = () => {
   ];
   return (
     <div className="flex flex-row h-screen">
-      <div className="side-bar w-[20%] bg-neutral-100 items-center p-4">
-        <img src={Logo} width={63} />
-      </div>
+      <SideNavBar />
       <div className="px-8 py-4 w-[80%]">
         <div className="flex justify-between">
           <h1 className="m-display-xxl-normal text-neutral-600">

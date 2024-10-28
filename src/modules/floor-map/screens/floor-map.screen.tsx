@@ -14,9 +14,9 @@ import { Tab } from "../../../core-components/molecules/tab/Tab.component";
 import { OptionCard } from "../../../core-components/molecules/option-card/OptionCard.component";
 import { Icon } from "../../../core-components/atoms/icon/Icon.component";
 import Iginee from "../../../assets/images/iginee.png";
-import Logo from "../../../assets/images/woobly-logo.svg";
 import { Divider } from "../../../core-components/atoms/divider/Divider.component";
 import { useNavigate } from "react-router-dom";
+import { SideNavBar } from "../../../core-components/templates/side-nav/SideNav.component";
 const FloorMap: React.FC = () => {
   const navigation = useNavigate();
   const [openSideDrawer, setOpenSideDrawer] = useState(false);
@@ -646,9 +646,7 @@ const FloorMap: React.FC = () => {
   };
   return (
     <div className="flex flex-row h-screen">
-      <div className="side-bar w-[20%] bg-neutral-100 items-center p-4">
-        <img src={Logo} width={63} />
-      </div>
+      <SideNavBar />
       <div className="px-8 py-4 w-[80%]">
         <div className="flex justify-between">
           <h1 className="m-display-xxl-normal text-neutral-900">Floor Map</h1>
