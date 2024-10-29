@@ -49,7 +49,7 @@ const GuestList: React.FC = () => {
     {
       name: "",
       key: "view",
-      classes: "break-all justify-start w-[86px] h-[40px] p-[12px] gap-[2px]",
+      classes: "break-all justify-start ",
       headerClasses: "m-text-xs-bold text-gray-900 ",
       onFormatter(_item) {
         return (

@@ -18,6 +18,7 @@ import { Tab } from "../../molecules/tab/Tab.component";
 import { useState } from "react";
 import { SideDrawer } from "../../atoms/side-drawer/SideDrawer.component";
 import { Divider } from "../../atoms/divider/Divider.component";
+import Dummy from "../../../assets/images/avatar.jpg";
 export const SideNavBar: React.FC<any> = () => {
   const [currentTabSelected, setCurrentTabSelected] = useState(0);
   const [showSideDrawerUI, setShowSideDrawerUI] = useState(0);
@@ -482,7 +483,7 @@ export const SideNavBar: React.FC<any> = () => {
         </div>
 
         <div className="w-full border text-gray-200 gap-2 mt-4 mb-4"></div>
-        <div className="gap-4 ">
+        <div className="gap-3 flex">
           <Button
             dataTestId=""
             iconName="featureIcon"
@@ -493,6 +494,10 @@ export const SideNavBar: React.FC<any> = () => {
               setOpenSideDrawer(true);
             }}
           />
+
+          <div className="text-neutral-100 rounded-full border-2 p-2 m-auto border-primary-600 cursor-pointer">
+            <Icon icon="bellIcon"></Icon>
+          </div>
         </div>
 
         <div className="w-full border text-gray-200 gap-4 mt-4 mb-4"></div>
@@ -524,21 +529,26 @@ export const SideNavBar: React.FC<any> = () => {
         <div className="w-full border text-gray-200 gap-4 mt-4 mb-4"></div>
 
         <div className="flex text-left justify-between gap-2 p-2">
-          <div>
-            <img src="" alt="" />
-            <div>
-              <div>
+          <div className="flex gap-3">
+            <img
+              src={Dummy}
+              className="rounded-full my-auto"
+              width={30}
+              height={30}
+            />
+            <div className="flex flex-col">
+              <div className="flex">
                 <span className="text-neutral-700 m-text-lg-medium">
                   Naveen
                 </span>
-                &#9660;
+                <Icon icon="chevron-down" className="cursor-pointer"></Icon>
               </div>
               <span className="text-neutral-500 m-text-xs-regular">
                 Manager
               </span>
             </div>
           </div>
-          <Icon icon="logoutIcon"></Icon>
+          <Icon icon="logoutIcon" className="cursor-pointer"></Icon>
         </div>
       </div>
     </>
