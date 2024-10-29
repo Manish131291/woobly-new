@@ -85,3 +85,18 @@
     background-color: white;
     text-align: left;
 }
+.mobile-menu{
+    box-shadow: 0px 1px 3px 0px #1A1D2B1A;
+    
+        box-shadow: 0px 1px 2px 0px #1A1D2B0F;
+}
+
+.menu-item{
+   background: var(--Neutrals-100, #F2F2F4);
+   position:absolute;   
+}
+.cross-icon {
+    border-radius: 50%;
+    border: 1px solid var(--Neutrals-300, #D1D2D5);
+    padding: 0.25rem;        
+}

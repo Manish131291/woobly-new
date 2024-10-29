@@ -39,8 +39,8 @@
 
 .drawer_open_container {
   width: 30rem;
-  @include m.media('mobilesmall') {
-    width: 22.5rem;
+  @include m.media('ipad880') {
+    width: 100%;
   }
   transform: translateX(0);
 }

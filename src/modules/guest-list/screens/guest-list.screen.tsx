@@ -69,10 +69,10 @@ const GuestList: React.FC = () => {
     },
   ];
   return (
-    <div className="flex flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-screen">
       <SideNavBar />
 
-      <div className="px-8 py-4 w-[80%] text-left">
+      <div className="px-8 py-4  w-full md:w-[80%] text-left">
         <h1 className=" text-2xl font-normal mt-6 text-neutral-900">
           Guest List
         </h1>

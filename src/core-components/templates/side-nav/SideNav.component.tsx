@@ -17,10 +17,12 @@ import dayjs from "dayjs";
 import { Tab } from "../../molecules/tab/Tab.component";
 import { useState } from "react";
 import { SideDrawer } from "../../atoms/side-drawer/SideDrawer.component";
+import { Divider } from "../../atoms/divider/Divider.component";
 export const SideNavBar: React.FC<any> = () => {
   const [currentTabSelected, setCurrentTabSelected] = useState(0);
   const [showSideDrawerUI, setShowSideDrawerUI] = useState(0);
   const [openSideDrawer, setOpenSideDrawer] = useState(false);
+
   const tabList = ["Art", "Classic", "Jump"];
   const activeTabFunc = (key: number) => {
     setCurrentTabSelected(key);
@@ -358,13 +360,127 @@ export const SideNavBar: React.FC<any> = () => {
       </SideDrawer>
     );
   };
+  const [expandedNavbar, setExpandedNavbar] = useState<boolean>(false);
+  const handleNavbarOpen = () => {
+    setExpandedNavbar((prev) => !prev);
+    document.body.classList.toggle("overflow-hidden");
+  };
   return (
     <>
       {SideDrawerData()}
-      <div className="side-bar w-[20%] bg-neutral-100 items-center p-4">
+      <div className="mobile-menu p-4 md:hidden block">
+        <div className="flex justify-between">
+          <img src={Logo} width={77.89} height={40} />
+          <div className="flex hamburger-sidebar-icon gap-2 justify-center">
+            <Button
+              dataTestId=""
+              iconName="featureIcon"
+              btnType="primary"
+              children=""
+              classes="w-[60%] border p-3 gap-2 rounded-full"
+              onClick={() => {
+                setOpenSideDrawer(true);
+              }}
+            />
+            <Icon
+              icon="bell-mobile-icon"
+              color="#fff"
+              className="cursor-pointer m-auto"
+              width={24}
+              height={24}
+            />
+            <div
+              onClick={() => {
+                handleNavbarOpen();
+              }}
+            >
+              <Icon
+                icon="humberger-icon"
+                color="#fff"
+                className="cursor-pointer m-auto"
+                height={24}
+                width={24}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className={`menu-item h-screen gap-4 w-full p-4 ${
+          expandedNavbar ? "block" : "hidden"
+        }`}
+      >
+        <div className="flex justify-between">
+          <h1 className="m-display-xxl-normal text-neutral-600"> Menu</h1>
+          <div onClick={handleNavbarOpen} className="cursor-pointer">
+            <Icon
+              icon="cross"
+              width={30}
+              height={30}
+              className="cross-icon m-auto"
+            />
+          </div>
+        </div>
+        <Button
+          dataTestId=""
+          iconName="featureIcon"
+          btnType="primary"
+          children="Check-in"
+          classes="w-full border gap-2 mt-4 mb-4"
+          onClick={() => {
+            setOpenSideDrawer(true);
+          }}
+        />
+        <Divider />
+        <div className="pt-4 gap-5 flex flex-col">
+          <div className="flex gap-2 justify-start p-2">
+            <Icon icon="homeIcon" color="none" />{" "}
+            <Link to="/dashboard">Dashboard</Link>
+          </div>
+          <div className="flex gap-2 justify-start p-2">
+            <Icon icon="tableIcon" color="none" />
+            <Link to="/floor-map">Tables</Link>
+          </div>
+          <div className="flex gap-2 justify-start p-2">
+            <Icon icon="shapeIcon" color="none" /> <Link to="">Hosts</Link>
+          </div>
+          <div className="flex gap-2 justify-start p-2">
+            <Icon icon="guestIcon" color="none" />
+            <Link to="/guest-list">Guest List</Link>
+          </div>
+          <div className="flex gap-2 justify-start p-2">
+            <Icon icon="settingIcon" color="none" /> <Link to="">Settings</Link>
+          </div>
+        </div>
+        <div className="absolute bottom-0 w-full">
+          <Divider />
+          <div className="flex flex-col text-left justify-between gap-2 p-2">
+            <div>
+              <img src="" alt="" />
+              <div>
+                <div>
+                  <span className="text-neutral-700 m-text-lg-medium">
+                    Naveen
+                  </span>
+                  &#9660;
+                </div>
+                <span className="text-neutral-500 m-text-xs-regular">
+                  Manager
+                </span>
+              </div>
+            </div>
+            <span className="flex gap-2">
+              <Icon icon="logoutIcon" />
+              Logout
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="side-bar w-[20%] bg-neutral-100 items-center p-4 md:block hidden">
         <div className="grid justify-items-center">
           <img src={Logo} width={77.89} height={40} />
         </div>
+
         <div className="w-full border text-gray-200 gap-2 mt-4 mb-4"></div>
         <div className="gap-4 ">
           <Button

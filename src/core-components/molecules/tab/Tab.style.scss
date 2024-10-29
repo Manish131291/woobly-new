@@ -12,6 +12,10 @@
 
   .tab-main-container {
     padding: 1rem;
+    @include m.media('ipad880') {
+        padding-left: 0;
+        padding-right: 0;
+      }
   }
 
   .tabheading {
