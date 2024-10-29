@@ -367,7 +367,7 @@ export const SideNavBar: React.FC<any> = () => {
           <img src={Logo} width={77.89} height={40} />
         </div>
         <div className="w-full border text-gray-200 gap-2 mt-4 mb-4"></div>
-        <div className="gap-4 ">
+        <div className="gap-3 flex">
           <Button
             dataTestId=""
             iconName="featureIcon"
@@ -378,6 +378,9 @@ export const SideNavBar: React.FC<any> = () => {
               setOpenSideDrawer(true);
             }}
           />
+
+          <div className="text-neutral-100 rounded-full border-2 p-2 m-auto border-primary-600 cursor-pointer"><Icon icon="bellIcon"></Icon></div>
+
         </div>
 
         <div className="w-full border text-gray-200 gap-4 mt-4 mb-4"></div>

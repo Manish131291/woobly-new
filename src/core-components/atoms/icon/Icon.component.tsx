@@ -27,7 +27,7 @@ import { ReactComponent as SettingIcon } from "../../../assets/images/setting.sv
 import { ReactComponent as ShapeIcon } from "../../../assets/images/Shape.svg";
 import { ReactComponent as tableIcon } from "../../../assets/images/tableIcon.svg";
 import { ReactComponent as LogoutIcon } from "../../../assets/images/logoutIcon.svg";
-
+import { ReactComponent as BellIcon } from "../../../assets/images/bellIcon.svg";
 
 interface IconProps {
   icon: string;
@@ -66,7 +66,8 @@ export const iconMapping: any = {
   settingIcon: SettingIcon,
   shapeIcon: ShapeIcon,
   tableIcon: tableIcon,
-  logoutIcon: LogoutIcon
+  logoutIcon: LogoutIcon,
+  bellIcon: BellIcon
 };
 export const Icon: React.FC<IconProps> = ({
   icon,
