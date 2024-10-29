@@ -22,7 +22,7 @@ export const Floor_table: React.FC<Floor_tableProps> = ({
 }) => {
   return (
     <div
-      className={`relative p-2 w-[233px] h-[126px] rounded-xl ${
+      className={`relative p-2 md:w-[233px] h-[126px] w-full rounded-xl ${
         tableType === "EMPTY" ? "bg-neutral-100" : "bg-primary-900"
       }`}
       onClick={() => {

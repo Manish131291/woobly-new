@@ -15,10 +15,8 @@ import { OptionCard } from "../../../core-components/molecules/option-card/Optio
 import { Icon } from "../../../core-components/atoms/icon/Icon.component";
 import Iginee from "../../../assets/images/iginee.png";
 import { Divider } from "../../../core-components/atoms/divider/Divider.component";
-import { useNavigate } from "react-router-dom";
 import { SideNavBar } from "../../../core-components/templates/side-nav/SideNav.component";
 const FloorMap: React.FC = () => {
-  const navigation = useNavigate();
   const [openSideDrawer, setOpenSideDrawer] = useState(false);
   const [tableSideDrawer, setTableSideDrawer] = useState(false);
   const [showSideDrawerUI, setShowSideDrawerUI] = useState(0);
@@ -122,7 +120,7 @@ const FloorMap: React.FC = () => {
                   4 Checked In
                 </span>
               </div>
-              <div className="flex gap-4">
+              <div className="flex md:flex-row flex-col gap-4 ">
                 <Floor_table
                   tableNumber={"01"}
                   name={"MR MODI"}
@@ -647,7 +645,7 @@ const FloorMap: React.FC = () => {
   return (
     <div className="flex flex-col md:flex-row h-screen">
       <SideNavBar />
-      <div className="px-8 py-4 w-full md:w-[80%]">
+      <div className="md:px-8 md:py-4 p-4 w-full md:w-[80%]">
         <div className="flex justify-between">
           <h1 className="m-display-xxl-normal text-neutral-900">Floor Map</h1>
           <div className="flex p-2 border-primary-200 bg-primary-50 rounded-xl">
@@ -675,26 +673,6 @@ const FloorMap: React.FC = () => {
           tabSelected={currentTabSelected}
         ></Tab>
 
-        <Button
-          dataTestId="CNFM"
-          btnType="primary"
-          classes="w-full"
-          onClick={() => {
-            setOpenSideDrawer(true);
-          }}
-        >
-          {"Next"}
-        </Button>
-        <Button
-          dataTestId="CNFM"
-          btnType="primary"
-          classes="w-full"
-          onClick={() => {
-            navigation("/guest-list");
-          }}
-        >
-          {"guest"}
-        </Button>
         {SideDrawerData()}
         {tableSideDrawerData()}
       </div>

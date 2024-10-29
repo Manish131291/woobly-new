@@ -23,13 +23,20 @@ export const SideNavBar: React.FC<any> = () => {
   const [currentTabSelected, setCurrentTabSelected] = useState(0);
   const [showSideDrawerUI, setShowSideDrawerUI] = useState(0);
   const [openSideDrawer, setOpenSideDrawer] = useState(false);
+  const [openNotificationSideDrawer, setOpenNotificationSideDrawer] =
+    useState(false);
 
   const tabList = ["Art", "Classic", "Jump"];
+  const noticationTabList = ["Action Required", "History"];
   const activeTabFunc = (key: number) => {
     setCurrentTabSelected(key);
   };
   const onCloseDrawer = () => {
     setOpenSideDrawer(false);
+  };
+  const onCloseNotificationDrawer = () => {
+    setOpenNotificationSideDrawer(false);
+    document.body.classList.remove("overflow-hidden");
   };
   const renderTabContents = (val: number) => {
     const getContent = () => {
@@ -106,10 +113,83 @@ export const SideNavBar: React.FC<any> = () => {
 
     return <div>{getContent()}</div>;
   };
+
+  const renderNotificationTabContents = (val: number) => {
+    const getContent = () => {
+      switch (val) {
+        case 0:
+          return (
+            <>
+              <div className="flex justify-between">
+                <div className="flex gap-4">
+                  <Icon icon="copy-icon" color="none" width={24} height={24} />
+                  <div className="flex flex-col items-start">
+                    <span className="m-text-lg-medium text-neutral-900">
+                      Bill Requested
+                    </span>
+                    <span className="m-text-lg-regular text-neutral-500">
+                      Mr Modi at Table 4 requested a Bill
+                    </span>
+                  </div>
+                </div>
+                <span className="m-text-xs-regular text-neutral-500">
+                  4 sec. ago
+                </span>
+              </div>
+              <Divider classes="mt-4 mb-4" />
+              <div className="flex justify-between">
+                <div className="flex gap-4">
+                  <Icon icon="copy-icon" color="none" width={24} height={24} />
+                  <div className="flex flex-col items-start">
+                    <span className="m-text-lg-medium text-neutral-900">
+                      Bill Requested
+                    </span>
+                    <span className="m-text-lg-regular text-neutral-500">
+                      Mr Modi at Table 4 requested a Bill
+                    </span>
+                  </div>
+                </div>
+                <span className="m-text-xs-regular text-neutral-500">
+                  4 sec. ago
+                </span>
+              </div>
+              <Divider classes="mt-4 mb-4" />
+              <div className="flex justify-between">
+                <div className="flex gap-4">
+                  <Icon icon="copy-icon" color="none" width={24} height={24} />
+                  <div className="flex flex-col items-start">
+                    <span className="m-text-lg-medium text-neutral-900">
+                      Bill Requested
+                    </span>
+                    <span className="m-text-lg-regular text-neutral-500">
+                      Mr Modi at Table 4 requested a Bill
+                    </span>
+                  </div>
+                </div>
+                <span className="m-text-xs-regular text-neutral-500">
+                  4 sec. ago
+                </span>
+              </div>
+            </>
+          );
+        case 1:
+          return <></>;
+
+        default:
+          return;
+      }
+    };
+
+    return <div>{getContent()}</div>;
+  };
   const tabContentList = [
     renderTabContents(0),
     renderTabContents(1),
     renderTabContents(2),
+  ];
+  const notificationTabContentList = [
+    renderNotificationTabContents(0),
+    renderNotificationTabContents(1),
   ];
   const modalUI = () => {
     switch (showSideDrawerUI) {
@@ -122,6 +202,19 @@ export const SideNavBar: React.FC<any> = () => {
       default:
         return <div></div>;
     }
+  };
+
+  const notificationModalUI = () => {
+    return (
+      <>
+        <Tab
+          tablist={noticationTabList}
+          tabChangeFunc={activeTabFunc}
+          tabContentList={notificationTabContentList}
+          tabSelected={currentTabSelected}
+        ></Tab>
+      </>
+    );
   };
   const checkInTime = () => {
     return (
@@ -361,6 +454,20 @@ export const SideNavBar: React.FC<any> = () => {
       </SideDrawer>
     );
   };
+
+  const NotificationSideDrawer = () => {
+    return (
+      <SideDrawer
+        open={openNotificationSideDrawer}
+        header="Notification Centre"
+        classes=""
+        onCloseDrawer={onCloseNotificationDrawer}
+        footer={<></>}
+      >
+        {notificationModalUI()}
+      </SideDrawer>
+    );
+  };
   const [expandedNavbar, setExpandedNavbar] = useState<boolean>(false);
   const handleNavbarOpen = () => {
     setExpandedNavbar((prev) => !prev);
@@ -369,9 +476,10 @@ export const SideNavBar: React.FC<any> = () => {
   return (
     <>
       {SideDrawerData()}
+      {NotificationSideDrawer()}
       <div className="mobile-menu p-4 md:hidden block">
         <div className="flex justify-between">
-          <img src={Logo} width={77.89} height={40} />
+          <img src={Logo} width={77.89} height={40} alt="" />
           <div className="flex hamburger-sidebar-icon gap-2 justify-center">
             <Button
               dataTestId=""
@@ -383,13 +491,20 @@ export const SideNavBar: React.FC<any> = () => {
                 setOpenSideDrawer(true);
               }}
             />
-            <Icon
-              icon="bell-mobile-icon"
-              color="#fff"
-              className="cursor-pointer m-auto"
-              width={24}
-              height={24}
-            />
+            <div
+              onClick={() => {
+                setOpenNotificationSideDrawer(true);
+                document.body.classList.add("overflow-hidden");
+              }}
+            >
+              <Icon
+                icon="bell-mobile-icon"
+                color="#fff"
+                className="cursor-pointer m-auto"
+                width={24}
+                height={24}
+              />
+            </div>
             <div
               onClick={() => {
                 handleNavbarOpen();
@@ -479,7 +594,7 @@ export const SideNavBar: React.FC<any> = () => {
       </div>
       <div className="side-bar w-[20%] bg-neutral-100 items-center p-4 md:block hidden">
         <div className="grid justify-items-center">
-          <img src={Logo} width={77.89} height={40} />
+          <img src={Logo} width={77.89} height={40} alt="" />
         </div>
 
         <div className="w-full border text-gray-200 gap-2 mt-4 mb-4"></div>
@@ -495,7 +610,12 @@ export const SideNavBar: React.FC<any> = () => {
             }}
           />
 
-          <div className="text-neutral-100 rounded-full border-2 p-2 m-auto border-primary-600 cursor-pointer">
+          <div
+            className="text-neutral-100 rounded-full border-2 p-2 m-auto border-primary-600 cursor-pointer"
+            onClick={() => {
+              setOpenNotificationSideDrawer(true);
+            }}
+          >
             <Icon icon="bellIcon"></Icon>
           </div>
         </div>
@@ -535,6 +655,7 @@ export const SideNavBar: React.FC<any> = () => {
               className="rounded-full my-auto"
               width={30}
               height={30}
+              alt=""
             />
             <div className="flex flex-col">
               <div className="flex">
